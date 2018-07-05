@@ -1,0 +1,35 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5>ID sesije: {{ session.id }}</h5>
+        </div>
+        <div class="panel-body">
+            <div class="well-sm inline-field">
+                <!--<label for="sessionSelect">Odabir:</label>-->
+                <!--<input ng-model="session.isSelected" id="sessionSelect" name="sessionSelect" type="checkbox">-->
+                <button ng-click="session.isSelected=!session.isSelected" class="btn btn-danger">
+                    {{ session.isSelected ? 'Odoznači' : 'Označi' }}
+                </button>
+            </div>
+            <div class="well-sm inline-field">
+                Prostorija: <em>{{ session.room_repr }}</em>
+            </div>
+            <div class="well-sm inline-field">
+                Preuzeo korisnik: <em>{{ session.first_name }} {{ session.last_name }}</em>
+            </div>
+            <div class="well-sm inline-field">
+                ID ključa: {{ session.key_id }}
+            </div>
+            <div class="well-sm inline-field">
+                ID korisnika: {{ session.user_id }}
+            </div>
+            <div class="well-sm inline-field">
+                Ključ preuzet: <b>{{ session.started_on.substring(0, 19) }}</b>
+            </div>
+            <div class="well-sm inline-field">
+                Ključ vraćen:
+                <b>{{ session.closed_on ? session.closed_on.substring(0, 19) : ' još aktivan ' }}</b>
+            </div>
+        </div>
+    </div>
+</div>

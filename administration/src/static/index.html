@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="administration" lang="hr">
+<head>
+    <base href="/"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RFID Administracija</title>
+    <link rel="shortcut icon" type="image/ico" href="static/favicon.ico"/>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="static/vendor/bootstrap-css-only/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/vendor/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="static/css/site.css">
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <script src="static/vendor/angular/angular.min.js"></script>
+    <script src="static/vendor/angular-route/angular-route.min.js"></script>
+    <script src="static/vendor/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="static/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="static/vendor/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="static/vendor/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+    <script src="static/vendor/angular-cookies/angular-cookies.js"></script>
+    <script src="static/js/administration.min.js"></script>
+    <!-- endinject -->
+</head>
+<body ng-controller="MainController">
+<nav-bar></nav-bar>
+<navigation-sidebar ng-hide="!isAuthenticated"></navigation-sidebar>
+<br/>
+<br/>
+<div ng-style="isAuthenticated && {'margin-left': '38px'}" ng-view></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div>
+        <h3>Popis svih ključeva</h3>
+        <hr/>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button ng-click="keys.deleteSelected()" class="btn btn-danger">Obriši odabrane</button>
+                <button ng-click="keys.toImport()" class="btn btn-info">Uvoz ključeva</button>
+            </div>
+        </div>
+        <div>
+            <label for="orderProp">Poredati ključeve prema:</label>
+            <select ng-model="keys.orderProp"
+                    ng-options="selectedProp.id as selectedProp.name for selectedProp in keys.orderOptions"
+                    name="orderProp" id="orderProp">
+            </select>
+            <label for="reverseOrder"> Obrnuti redoslijed</label>
+            <input ng-model="keys.reverseOrder" type="checkbox" id="reverseOrder"/>
+        </div>
+        <hr/>
+        <div ng-repeat="item in keys.list | orderBy:keys.orderProp:keys.reverseOrder" key-info="item"></div>
+    </div>
+</div>

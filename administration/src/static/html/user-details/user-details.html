@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div>
+        <h3>Pojedinosti o korisniku broj {{ model.userId }}</h3>
+        <hr/>
+    </div>
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button ng-click="deleteItem()" class="btn btn-danger">Obriši odabrane</button>
+            </div>
+        </div>
+        <div ng-if="model.userData!=null">
+            <div class="row" user-info="model.userData"></div>
+            <div user-sessions data-user-id="model.userId"></div>
+        </div>
+        <div ng-if="!(model.userData)">
+            Podaci o korisniku se ne mogu trenutno prikazati...
+        </div>
+    </div>
+</div>

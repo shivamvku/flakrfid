@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <h3>{{ title }}</h3>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">{{ note }}</div>
+            <div class="panel-body">
+                Molim, primaknite korisnički RFID privjesak ključa ili karticu iznad čitača kako bi sustav detektirao
+                jedinstveni identifikacijski broj.
+                Identifikacijski broj će se prikazati nedugo nakon i tada ćete moći unijeti ostale korisničke podatke.
+            </div>
+        </div>
+        <div ng-if="!isPreloading" class="panel">
+            <div reader tag-data="tagInfo.tagId" message="tagInfo.message"></div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">{{ tagInfo.tagId }}</div>
+            <div class="panel-body">{{ tagInfo.message }}</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Uređivanje podataka o korisniku s brojem
+                <span ng-bind-template="'{{ tagInfo.tagId }}'"></span>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div ng-class="{'drop-box': !image}" class="drop-box-container">
+                        <img ng-hide="!image" class="img-responsive img-rounded" ngf-src="image" alt="avatar"/>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="fname">Ime:</label>
+                        <input ng-model="firstName" class="form-control" placeholder="Unesite ime"
+                               id="fname" type="text" ng-required="true"/>
+                        <span class="has-error">{{ errorRegistering.firstname }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Prezime:</label>
+                        <input ng-model="lastName" class="form-control" placeholder="Unesite prezime"
+                               id="lname" type="text" ng-required="true"/>
+                        <span class="has-error">{{ errorRegistering.lastname }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input ng-model="email" class="form-control" placeholder="Unesite email"
+                               id="email" type="email" ng-required="true"/>
+                        <span class="has-error">{{ errorRegistering.email }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input ng-model="password" class="form-control" placeholder="Unesite lozinku"
+                               id="password" type="password" ng-required="true"/>
+                        <span class="has-error">{{ errorRegistering.password }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm password:</label>
+                        <input ng-model="password2" class="form-control" placeholder="Potvrdite lozinku"
+                               id="password2" type="password" ng-required="true"/>
+                        <span class="has-error">{{ errorRegistering.password2 }}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Titula:</label>
+                        <select ng-model="role" ng-required="true"
+                                ng-options="selectedRole.id as selectedRole.name for selectedRole in roleOptions"
+                                class="form-control" name="role" id="role">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Slika profila:</label>
+                        <input ngf-select="" ngf-drop="" ng-model="image"
+                               name="file" id="file"
+                               accept="image/*" type="file"/>
+                        <span class="has-error">{{ errorRegistering.imageFile }}</span>
+                    </div>
+                    <button ng-click="proceed()" class="btn btn-primary">
+                        Izvrši
+                    </button>
+                    <button ng-click="cancel()" class="btn btn-danger">Odustani</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

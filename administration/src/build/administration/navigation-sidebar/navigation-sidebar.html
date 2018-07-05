@@ -1,0 +1,46 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper" ng-init="showSide=false" ng-class="{'side-condensed': !showSide}">
+    <ul class="sidebar-nav" ng-class="{'side-condensed': !showSide}"
+        ng-mouseleave="slideSidebar()">
+        <li ng-init="basic.showOptions=false">
+            <a ng-hide="showSide" ng-mouseenter="slideSidebar()"><i class="glyphicon glyphicon-user"></i></a>
+            <a ng-show="showSide" ng-click="basic.showOptions=!basic.showOptions" href="">
+                {{ basic.label }}
+            </a>
+            <ul ng-show="basic.showOptions && showSide">
+                <li ng-repeat="basic in basicRoutes" ng-click="slideSidebar()">
+                    <a ng-href="{{ basic.route }}">
+                        {{ basic.name }}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li ng-init="extended.showOptions=false">
+            <a ng-hide="showSide" ng-mouseenter="slideSidebar()"><i class="glyphicon glyphicon-search"></i></a>
+            <a ng-show="showSide" ng-click="extended.showOptions=!extended.showOptions" href="">
+                {{ extended.label }}
+            </a>
+            <ul ng-show="extended.showOptions && showSide">
+                <li ng-repeat="extended in extendedRoutes" ng-click="slideSidebar()">
+                    <a ng-href="{{ extended.route }}">
+                        {{ extended.name }}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li ng-init="settings.showOptions=false">
+            <a ng-hide="showSide" ng-mouseenter="slideSidebar()"><i class="glyphicon glyphicon-cloud-upload"></i></a>
+            <a ng-show="showSide" ng-click="settings.showOptions=!settings.showOptions" href="">
+                {{ settings.label }}
+            </a>
+            <ul ng-show="settings.showOptions && showSide">
+                <li ng-repeat="settings in settingsRoutes" ng-click="slideSidebar()">
+                    <a ng-href="{{ settings.route }}">
+                        {{ settings.name }}
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /#sidebar-wrapper -->

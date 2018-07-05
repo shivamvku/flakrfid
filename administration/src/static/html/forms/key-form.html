@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <h3>{{title}}</h3>
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">{{note}}</div>
+            <div class="panel-body">
+                Molim, primaknite RFID privjesak ključa iznad čitača kako bi sustav detektirao njegov jedinstveni
+                identifikacijski broj.
+                Identifikacijski broj će se prikazati nedugo nakon i tada ćete moći unijeti ostale informacije vezane za
+                prostoriju.
+            </div>
+        </div>
+        <div ng-if="!isPreloading" class="panel">
+            <reader tag-data="tagInfo.tagId" message="tagInfo.message"></reader>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading"><span ng-bind-template="'{{tagInfo.tagId}}'"></span> status</div>
+            <div class="panel-body"><span ng-bind-template="'{{tagInfo.message}}'"></span></div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Uređivanje podataka vezanih za ključ
+                <span ng-bind-template="'{{roomRepr}}'"></span>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <label class="radio-inline">
+                        <input ng-model="isRoom" type="radio" value="1"/>
+                        Učionica
+                    </label>
+                    <label class="radio-inline">
+                        <input ng-model="isRoom" type="radio" value="2"/>
+                        Amfiteatar
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group">
+                        <div ng-show="isRoom" class="form-control">
+                            <label for="block">Blok zgrade:</label>
+                            <select ng-model="blockName" name="block" id="block">
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                            <label for="sector">Odjel:</label>
+                            <select ng-model="sectorName" name="sector" id="sector">
+                                <option value="B">Biologija</option>
+                                <option value="FESB">FESB</option>
+                                <option value="F">Fizika</option>
+                                <option value="I">Informatika</option>
+                                <option value="M">Matematika</option>
+                                <option value="K">Kemija</option>
+                                <option value="P">Politehnika</option>
+                                <option value="BFK">Zajednička</option>
+                            </select>
+                        </div>
+                        <label for="floor">Kat:</label>
+                        <input ng-model="floor" class="form-control" id="floor"
+                               placeholder="Kat..." type="text">
+                        <label for="rid">Broj prostorije:</label>
+                        <input ng-model="roomId" class="form-control" id="rid"
+                               placeholder="Enter room number..." type="text"/>
+                        <button ng-click="proceed()" class="btn btn-primary">Izvrši</button>
+                        <button ng-click="cancel()" class="btn btn-danger">Odustani</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

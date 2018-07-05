@@ -1,0 +1,19 @@
+<div class="container-fluid" ng-if="results!=[]">
+    <h3>Rezultati pretrage: <span class="badge">{{ results.length }}</span></h3>
+    <hr/>
+    <div>
+        Poredati korisnike prema:
+        <select ng-model="orderProp" name="orderProp" id="orderProp">
+            <option value="user_id">ID korisnika</option>
+            <option value="tag_id">Tag ID</option>
+            <option value="role_id">Titula</option>
+            <option value="first_name">Ime</option>
+            <option value="last_name">Prezime</option>
+            <option value="email">Email</option>
+        </select>
+    </div>
+    <hr/>
+    <div class="row">
+        <div ng-repeat="item in results | orderBy:orderProp track by $index" user-info="item"></div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <button ng-init="displayResults=false" ng-click="displayResults=!displayResults" class="btn btn-primary">
+        Pregled svih sesija korisnika
+    </button>
+    <div ng-show="displayResults" class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Popis svih preuzimanja ključeva za korisnika broj {{userId}}</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <label for="orderProp">Poredati preuzimanja prema:</label>
+                <select ng-model="orderProp"
+                        ng-options="selectedProp.id as selectedProp.name for selectedProp in orderOptions"
+                        name="orderProp" id="orderProp">
+                    <option value="id">ID sesije</option>
+                    <option value="key_id">ID ključa</option>
+                    <option value="user_id">ID korisnika</option>
+                    <option value="started_on">Datum preuzimanja</option>
+                    <option value="closed_on">Datum vraćanja</option>
+                </select>
+            </div>
+            <hr/>
+            <div ng-repeat="session in result | orderBy:orderProp track by $index" session-info="session"></div>
+        </div>
+    </div>
+    <div class="btn btn-default">
+        <a class="no-decoration" ng-href="users/">Natrag na popis svih korisnika</a>
+    </div>
+</div>

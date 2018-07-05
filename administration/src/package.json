@@ -1,0 +1,27 @@
+{
+  "name": "rfid-flask-app",
+  "version": "1.0.0",
+  "description": "rfid administration iot app for raspberry pi",
+  "main": "",
+  "scripts": {
+    "build": "gulp static:build",
+    "scripts": "gulp scripts:inject",
+    "styles": "gulp styles:inject",
+    "html": "gulp html:copy"
+  },
+  "keywords": [
+    "rfid",
+    "flask",
+    "angularjs",
+    "gulp"
+  ],
+  "author": "Matija Čvrk",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-inject": "^4.2.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}

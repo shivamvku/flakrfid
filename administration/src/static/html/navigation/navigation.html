@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" ng-init="navCollapsed = true">
+        <div class="navbar-header">
+            <button type="button" ng-click="navCollapsed = !navCollapsed"
+                    class="navbar-toggle collapsed"
+                    style="background-color: transparent">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="setActive(0)" ng-href="/">{{ title }}</a>
+        </div>
+
+        <div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="route1 in commonRoutes" ng-class="{ active: isActive(route1.id) }"><a
+                        ng-click="navCollapsed = !navCollapsed"
+                        ng-href="{{ route1.route }}">{{ route1.name }}</a></li>
+            </ul>
+            <ul ng-show="isAuthenticated" class="nav navbar-nav">
+                <li ng-repeat="route2 in protectedRoutes" ng-class="{ active: isActive(route2.id) }"><a
+                        ng-click="navCollapsed = !navCollapsed"
+                        ng-href="{{ route2.route }}">{{ route2.name }}</a></li>
+            </ul>
+            <ul ng-show="isAuthenticated" class="nav navbar-nav" auth-dashboard>
+                <!--<auth-dashboard class="navbar navbar-nav"></auth-dashboard>-->
+            </ul>
+            <ul ng-hide="isAuthenticated" class="nav navbar-nav">
+                <li ng-repeat="route3 in authenticationRoutes" ng-class="{ active: isActive(route3.id) }"><a
+                        ng-click="navCollapsed = !navCollapsed"
+                        ng-href="{{ route3.route }}">{{ route3.name }}</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

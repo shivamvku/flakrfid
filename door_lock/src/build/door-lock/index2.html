@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Index</title>
+
+    <link rel="stylesheet" href="static/vendor/bootstrap-css-only/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/vendor/angular-bootstrap/ui-bootstrap-csp.css"/>
+    <link rel="stylesheet" href="static/css/site.css"/>
+
+    <script src="static/vendor/angular/angular.min.js"></script>
+    <script src="static/vendor/angular-route/angular-route.min.js"></script>
+    <script src="static/vendor/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="static/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="static/door-lock/door-lock.js"></script>
+    <script src="static/door-lock/config.js"></script>
+    <script src="static/door-lock/shared/door-lock.controller.js"></script>
+    <script src="static/door-lock/shared/user-sessions.service.js"></script>
+    <script src="static/door-lock/user-sessions/user-sessions.list.controller.js"></script>
+</head>
+<body ng-controller="doorLockController">
+<div></div>
+<br/>
+<br/>
+<div ng-view></div>
+</body>
+</html>

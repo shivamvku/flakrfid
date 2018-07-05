@@ -1,0 +1,38 @@
+RFID - Python Tutorial - GeraintW Online Blog
+----------------------------------------------------------------------------------------------------------------
+1. step (install python-dev)
+sudo apt-get install python-dev
+
+2. step (enable SPI in RPi)
+As the SPI is not enabled by default you will need to edit the raspi-blacklsit.conf 
+in order to enable the SPI interface; this has been blacklisted as most users 
+are not interested in it according to the comment in the file. 
+There are only two devices in the file, the SPI and I2C.
+
+sudo vi /etc/modprobe.d/raspi-blacklist.conf
+
+Add '#' in front of the line spi-bcm2708 to comment it out of the blacklist. 
+Save the file, and you will need to reboot the Raspberry PI, 
+after which the lsmod command should show the spi device (spi_bcm2708) enabled.
+
+3. step (install SPI-Py library to work with SPI on RPi using python lang)
+git clone https://github.com/lthiery/SPI-Py.git
+cd SPI-Py
+sudo python setup.py install
+
+4. step (install MFRC522 library from github)
+git clone https://github.com/rasplay/MFRC522-python.git
+cd MFRC522-python
+sudo python read.py
+
+5. step (enable device tree)
+cd ~
+ls /boot/config.txt
+sudo nano /boot/config.txt
+
+(... now navigate to end of file and insert code below:)
+device_tree=on
+(... save changes ...)
+
+6. step (test)
+sudo python read.py

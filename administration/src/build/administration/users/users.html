@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div>
+        <h3>Registrirani korisnici</h3>
+        <hr/>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button ng-click="users.deleteSelected()" class="btn btn-danger">Obriši odabrane</button>
+            </div>
+        </div>
+        <div>
+            <label for="orderProp">Poredati korisnike prema:</label>
+            <select ng-model="users.orderProp"
+                    ng-options="selectedProp.id as selectedProp.name for selectedProp in users.orderOptions"
+                    name="orderProp" id="orderProp">
+            </select>
+            <label for="reverseOrder"> Obrnuti redoslijed</label>
+            <input ng-model="users.reverseOrder" type="checkbox" id="reverseOrder"/>
+        </div>
+        <hr/>
+        <div class="row">
+            <div ng-repeat="item in users.list | orderBy:users.orderProp:users.reverseOrder" user-info="item"></div>
+        </div>
+    </div>
+</div>

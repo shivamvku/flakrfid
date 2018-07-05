@@ -1,0 +1,18 @@
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Čitač je aktivan, čeka i osluškuje...</div>
+        <div class="panel-body">Približite RFID tag (token) i zadržite 2-3 sekunde iznad čitača za dohvat podataka.</div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <label for="tagData">Tag ID:</label>
+            <input disabled id="tagData" name="tagData" ng-model="tagData" type="text"/>
+            <counter tag-data="tagData"></counter>
+        </div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <p>{{message}}</p>
+        </div>
+    </div>
+</div>

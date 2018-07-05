@@ -1,0 +1,5 @@
+*.pyc
+
+src/static/images/*
+!src/static/images/default.png
+!src/static/images/hero-img.jpg

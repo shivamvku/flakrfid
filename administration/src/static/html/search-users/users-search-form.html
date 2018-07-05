@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div>
+        <h3>Stranica za pretragu korisnika</h3>
+        <hr/>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Forma za pretragu korisnika</div>
+        <div class="panel-body">
+            <h5>Pretražite korisnike unosom imena ili prezimena u polje za pretragu (možete više korisnika
+                odjednom)</h5>
+            <div class="form-group">
+                <input ng-model="usersSearch.queryset" ng-keypress="usersSearch.doSubmit($event)" type="text"
+                       placeholder="Enter search data..."/>
+                <button ng-click="usersSearch.submit()" type="submit" class="btn btn-primary">Pretraži</button>
+                <button ng-click="usersSearch.cancel()" type="reset" class="btn btn-default">Odustani</button>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div ng-if="usersSearch.results" users-search-results results="usersSearch.results"></div>
+</div>

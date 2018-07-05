@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div>
+        <h3>Informacije o ključu broj {{model.keyId}}</h3>
+        <hr/>
+    </div>
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button ng-click="deleteItem()" class="btn btn-danger">Obriši označene</button>
+            </div>
+        </div>
+        <div ng-if="model.keyData!=null">
+            <div key-info="model.keyData"></div>
+            <div key-sessions data-key-id="model.keyId"></div>
+        </div>
+        <div ng-if="!(model.keyData)">
+            Podaci o ključu ne mogu biti prikazani...
+        </div>
+    </div>
+</div>

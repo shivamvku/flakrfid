@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div>
+        <h3>Popis svih sesija</h3>
+        <hr/>
+    </div>
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button ng-click="sessions.deleteSelected()" class="btn btn-danger">Obriši odabrane</button>
+                <button ng-click="sessions.selectAll()" class="btn btn-info">Odaberi sve</button>
+            </div>
+        </div>
+        <div>
+            <label for="orderProp">Poredati preuzimanja prema:</label>
+            <select ng-model="sessions.orderProp"
+                    ng-options="selectedProp.id as selectedProp.name for selectedProp in sessions.orderOptions"
+                    name="orderProp" id="orderProp">
+            </select>
+            <label for="reverseOrder"> Obrnuti redoslijed</label>
+            <input ng-model="sessions.reverseOrder" type="checkbox" id="reverseOrder"/>
+        </div>
+        <hr/>
+        <div ng-repeat="session in sessions.list | orderBy:sessions.orderProp:sessions.reverseOrder track by $index"
+             session-info="session">
+        </div>
+    </div>
+</div>

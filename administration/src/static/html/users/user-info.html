@@ -1,0 +1,41 @@
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div ng-init="user.isSelected=false">
+        <div class="btn btn-default inline-field">
+            <a ng-href="/user-details/{{user.user_id}}" class="no-decoration">Pojedinosti</a>
+        </div>
+        <button ng-click="user.isSelected=!user.isSelected" class="btn btn-danger">
+            {{ user.isSelected ? 'Odoznači' : 'Označi' }}
+        </button>
+        <div class="btn btn-default inline-field">
+            <a ng-href="/users/edit/{{ user.user_id }}" class="no-decoration">Edit</a>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Broj korisnika: {{user.user_id}}</h4>
+                <h5>Titula: {{user.role_title}}</h5>
+            </div>
+            <div class="panel-body">
+                <div class="img-container inline-field padding-right">
+                    <img class="img-rounded img-responsive img-field" ng-src="{{user.pic_url}}" alt="avatar">
+                </div>
+                <div class="inline-field border-left padding-left">
+                    <div class="padding-right-sm">
+                        <div class="well">
+                            Ime i prezime: {{user.first_name}} {{user.last_name}}
+                        </div>
+                    </div>
+                    <div class="padding-right-sm">
+                        <div class="well">
+                            Email: <i>{{user.email}}</i>
+                        </div>
+                    </div>
+                    <div class="padding-right-sm">
+                        <div class="well">
+                            Serijska oznaka: {{user.tag_id}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

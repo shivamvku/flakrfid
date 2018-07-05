@@ -1,0 +1,20 @@
+<div class="btn btn-default">
+    <a ng-href="/key-details/{{ key.id }}" class="no-decoration">Pojedinosti</a>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="well-sm inline-field"><em>{{key.room_repr}}</em></div>
+        <div class="well-sm inline-field">Broj ključa: {{key.room_id}}</div>
+        <div class="well-sm inline-field">Oznaka odjela: {{key.sector_name}}</div>
+        <div class="well-sm inline-field">Kat: {{key.floor}}</div>
+        <div class="well-sm inline-field">Predio zgrade: {{key.block_name}}</div>
+        <div class="well-sm inline-field">Tag ID: {{key.tag_id}}</div>
+        <div class="well-sm inline-field">ID ključa: {{key.id}}</div>
+        <div ng-init="key.isSelected = false">
+            <a ng-href="/keys/edit/{{ key.id }}" class="btn btn-primary">Uređivanje</a>
+            <button ng-click="key.isSelected=!key.isSelected" class="btn btn-danger">
+                {{ key.isSelected ? 'Odoznači' : 'Označi' }}
+            </button>
+        </div>
+    </div>
+</div>
